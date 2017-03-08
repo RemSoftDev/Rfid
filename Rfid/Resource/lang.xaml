@@ -1,0 +1,400 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Rfid"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <!--UserInfo_Main page-->
+    <v:String x:Key="mFindUSer">Search</v:String>
+    <v:String x:Key="mAddUser">Add an Employee</v:String>
+    <v:String x:Key="mStart">Start
+    </v:String>
+    <v:String x:Key="mReports">Report
+    </v:String>
+    <v:String x:Key="mSetting">Setting</v:String>
+    <v:String x:Key="mAuthorize">
+        Log in</v:String>
+    <!--FindUser page-->
+    <v:String x:Key="u_b_Find">Search</v:String>
+    <v:String x:Key="u_b_Clear">Clear fields</v:String>
+    <!--User Property-->
+    <v:String x:Key="u_l_FirstName">First Name
+    </v:String>
+    <v:String x:Key="u_l_SecondName">Last Name
+    </v:String>
+    <v:String x:Key="u_l_ThirdName">Middle Name
+    </v:String>
+    <v:String x:Key="d_l_FirstName">First Name of Head of Department
+    </v:String>
+    <v:String x:Key="d_l_SecondName">Last Name of Head of Department
+    </v:String>
+    <v:String x:Key="d_l_ThirdName">Middle Name of Head of Department
+    </v:String>
+    <v:String x:Key="u_l_Phone">Phone Number
+    </v:String>
+    <v:String x:Key="u_l_DepartmentName">Name of Department
+    </v:String>
+    <v:String x:Key="u_l_DepartmentCode">Code of Department
+    </v:String>
+    <v:String x:Key="u_l_DepartmentDirector">Head of the Department
+    </v:String>
+    <v:String x:Key="u_l_Addres">Adress
+    </v:String>
+    <v:String x:Key="u_l_Birthday">Date of Birth</v:String>
+    <v:String x:Key="u_l_RfidNumber">Rfid's Number</v:String>
+    <!--About User page-->
+    <v:String x:Key="au_l_UserMainInformation">Personnal Information about User
+    </v:String>
+    <v:String x:Key="au_l_UserInformation">About User
+    </v:String>
+    <v:String x:Key="au_l_DepartmentInfo">Department Information
+    </v:String>
+    <v:String x:Key="au_l_ContactMan">Contact Persons
+    </v:String>
+    <v:String x:Key="au_l_RfidInformation">Information about Rfid
+    </v:String>
+    <v:String x:Key="au_l_AddComents">Add a Comment
+    </v:String>
+    <v:String x:Key="au_l_Coments">Feedback about Employee
+    </v:String>
+    <v:String x:Key="au_l_RfidComents">Feedback about Rfid
+    </v:String>
+    <v:String x:Key="au_l_Status" xml:space="preserve">Status : </v:String>
+    <v:String x:Key="au_l_StatusOn">In office</v:String>
+    <v:String x:Key="au_l_StatusOff">Out office</v:String>
+    <v:String x:Key="au_l_RfidInfo">Information about Rfid
+    </v:String>
+    <v:String x:Key="au_l_editUser">Edit employee</v:String>
+    <!--Linking Rfid-->
+    <v:String x:Key="lin_l_rfidCode">Rfid Number</v:String>
+    <v:String x:Key="lin_l_AddingDate">Adding Date</v:String>
+    <v:String x:Key="lin_btn_DetachRfid">Detach
+    </v:String>
+    <v:String x:Key="lin_l_Comment">Feedback</v:String>
+    <v:String x:Key="lin_btn_AttachRfid">Attached Rfid
+    </v:String>
+    <v:String x:Key="lin_l_Hisory">History of Rfid's Changes
+    </v:String>
+    <!--WindowSnapRFID-->
+    <v:String x:Key="enterRfid_label">Enter Rfid number</v:String>
+    <v:String x:Key="enterRfid_btn">Submit</v:String>
+    <!--Add Update User-->
+    <v:String x:Key="addu_Admin">Is Admin</v:String>
+    <v:String x:Key="addu_btn_addPhoneNumber">Add a Phone Number
+    </v:String>
+    <v:String x:Key="addu_btn_moreContactPerson">Add another Contact Person
+    </v:String>
+    <v:String x:Key="addu_btn_addImage">Upload</v:String>
+    <v:String x:Key="addu_btn_addRfid">Add a new Rfid</v:String>
+    <v:String x:Key="addu_start">Start of Working Day
+    </v:String>
+    <v:String x:Key="addu_end">End of Working Day
+    </v:String>
+    <v:String x:Key="addu_valid">Acceptable Time of Being Late
+    </v:String>
+    <v:String x:Key="addu_dinnerTime">Lunch Break
+    </v:String>
+    <v:String x:Key="addu_btn_saveChanges">Save Changes</v:String>
+    <v:String x:Key="addu_lbi_UpdateImage">Photo</v:String>
+    <v:String x:Key="addu_lbi_UserInformation">Personnal Information about employee
+    </v:String>
+    <v:String x:Key="addu_lbi_ContactPeople">Contacts Person</v:String>
+    <v:String x:Key="addu_lbi_WorkTime">Working Day</v:String>
+    <v:String x:Key="addu_lbi_DepInfo">Information about department</v:String>
+    <v:String x:Key="addu_RfidNumber">Rfid number</v:String>
+    <!--FPPage-->
+    <v:String x:Key="fp_lbi_MainInformation">Main information</v:String>
+    <v:String x:Key="fp_lbi_MonthlyReport">Monthly report</v:String>
+    <v:String x:Key="fp_lbi_DepReport">Department report</v:String>
+    <v:String x:Key="fp_lbi_HourseWork">Worked Hours</v:String>
+    <v:String x:Key="fp_lbi_Excel">Generating and Sending Excel files</v:String>
+    <v:String x:Key="Holidays">Holidays</v:String>
+    <v:String x:Key="fp_btn_unselect">Unselect</v:String>
+    <v:String x:Key="fp_btn_generExcel">Generate excel</v:String>
+    <v:String x:Key="fp_btn_sendFile">Sending excel tabels</v:String>
+    <v:String x:Key="fp_l_chseFile">Select a file</v:String>
+    <v:String x:Key="fp_l_EmailAddres">Recipient email address</v:String>
+    <v:String x:Key="fp_btn_DayOff">Days Off
+    </v:String>
+    <v:String x:Key="fp_btn_DaysAbvense">Days of Absence
+    </v:String>
+    <v:String x:Key="fp_btn_Holidays">Holidays
+    </v:String>
+    <v:String x:Key="fp_btn_Vacations">Vacations
+    </v:String>
+    <v:String x:Key="fp_l_StartDate">Start Date
+    </v:String>
+    <v:String x:Key="fp_l_EndDate">End Date
+    </v:String>
+    <v:String x:Key="fp_l_SangleDate">Single Date
+    </v:String>
+    <v:String x:Key="fp_btn_dd">Add
+    </v:String>
+    <v:String x:Key="fp_mi_settingExcel"> Settings of Excel Page Generation
+    </v:String>
+    <v:String x:Key="fp_mi_settingEmail">Settings of Email Sending
+    </v:String>
+    <!--DatagridColumn-->
+    <v:String x:Key="dgc_stat">Come In</v:String>
+    <v:String x:Key="dgc_end">Come Out</v:String>
+    <v:String x:Key="dgc_dinner">Dinner</v:String>
+    <v:String x:Key="dgc_valid">Acceptable Time of Being Late</v:String>
+    <v:String x:Key="dgc_date">Date</v:String>
+    <v:String x:Key="dgc_count">Count</v:String>
+    <v:String x:Key="dgc_countInSide">Number of Employees Present in the Office</v:String>
+    <v:String x:Key="dgc_countOutSide">Number of Employees out of the Office</v:String>
+    <v:String x:Key="dgc_day">Day of Week</v:String>
+    <v:String x:Key="dgc_timeIn">Come In</v:String>
+    <v:String x:Key="dgc_timeOut">Come Out</v:String>
+    <v:String x:Key="dgc_lenghtInside">Time Spent in the Office</v:String>
+    <v:String x:Key="dgc_leanghtOuside">Time Spent out of the Office</v:String>
+    <!--AllTime-->
+    <v:String x:Key="at_Inside">In Office</v:String>
+    <v:String x:Key="at_Outside">Out Office</v:String>
+    <v:String x:Key="at_Week">Week : </v:String>
+    <v:String x:Key="at_Month">Month : </v:String>
+    <v:String x:Key="at_Year">Year : </v:String>
+    <v:String x:Key="at_TimeSelected">Time Interval :
+    </v:String>
+    <v:String x:Key="at_GetData">Get Information
+</v:String>
+    <!--Setting-->
+    <v:String x:Key="s_t_Personalization">Personalization
+    </v:String>
+    <v:String x:Key="s_t_EmailSend">Email Settings
+    </v:String>
+    <v:String x:Key="s_t_ExcelSetting">Excel Settings
+    </v:String>
+    <v:String x:Key="s_t_LimitSetting">Limit of Time Settings
+    </v:String>
+    <v:String x:Key="s_t_LanguageSetting">Language Settings
+    </v:String>
+    <v:String x:Key="s_l_ChangeLanguage">Change Language</v:String>
+    <v:String x:Key="s_l_SetFilePath">Set File Path
+    </v:String>
+    <v:String x:Key="s_l_StmpClient">Smtp Client
+    </v:String>
+    <v:String x:Key="s_l_MailFrom">Mail From
+    </v:String>
+    <v:String x:Key="s_l_Password">Password
+    </v:String>
+    <v:String x:Key="s_l_Subject">Subject
+    </v:String>
+    <v:String x:Key="s_l_Body">Body
+    </v:String>
+    <v:String x:Key="s_l_LimitTime">Max. Hours in the Office
+    </v:String>
+    <v:String x:Key="s_l_Interval">Interval
+    </v:String>
+    <v:String x:Key="s_l_DarkTheme">Dark theme</v:String>
+    <v:String x:Key="s_l_LightTheme">Light theme</v:String>
+    <v:String x:Key="s_l_ChangeAcccent">Change accent theme</v:String>
+    <v:String x:Key="s_l_ChangeTheme">Change theme</v:String>
+    <v:String x:Key="s_l_SettingChangeTheme">Setting Personalization</v:String>
+    <v:String x:Key="t_AuthorizeAdmin">Log admin</v:String>
+
+    <v:String x:Key="msb_rfidNotFound">Employee has no Rfid attached!</v:String>
+    <v:String x:Key="msb_notSelectDate">Please, select the date!</v:String>
+    <v:String x:Key="msb_userNotFount">Employee is not found!</v:String>
+    <v:String x:Key="msb_floderNotSelected">Select the folder with Excel files in Settings
+!</v:String>
+    <v:String x:Key="msb_userDontHaveTime">Employee has not yet appeared in the office</v:String>
+    <v:String x:Key="msb_userDontHavePhoto">Employee has no photo attached</v:String>
+    <v:String x:Key="msb_userNotSelected">Please, select an employee!</v:String>
+    <v:String x:Key="msb_fileNotSekected">Select the file which needs to be sent!</v:String>
+    <v:String x:Key="msb_emailNotEntered">Enter the email adress!</v:String>
+    <v:String x:Key="msb_emailUnknownError">Email sending error</v:String>
+    <v:String x:Key="msb_selectUserOrHolidey">Select an employee to see when he was absent or vacations to see public holidays</v:String>
+    <v:String x:Key="msb_startIsBeggerEnd">Start date is greater than the final</v:String>
+    <v:String x:Key="msb_slectDate">Select date</v:String>
+    <v:String x:Key="msb_enterRfid">Enter Rfid</v:String>
+    <v:String x:Key="msb_notEnterNumber">Code is not entered</v:String>
+    <v:String x:Key="msb_setPIB">Enter First Name, Middle Name, Last Name</v:String>
+    <v:String x:Key="msb_setSelectUser">Select an employee</v:String>
+    <v:String x:Key="m_t_logOut">Log out</v:String>
+    <v:String x:Key="find_error">Employee not found</v:String>
+    
+    
+    <!--ToolTip-->
+    
+    <!--UserInfo_Main-->
+    <!--UserInfo_Main-->
+    <v:String x:Key="UM_SearchTT">Search page using different criteria or combining them
+    </v:String>
+    <v:String x:Key="UM_AddTT">Page of creating of new user
+    </v:String>
+    <v:String x:Key="UM_StartTT">Page of coming in/out of the work
+    </v:String>
+    <v:String x:Key="UM_ReporttTT">Page of user's reports
+    </v:String>
+    <v:String x:Key="UM_SettingTT">Settings page
+    </v:String>
+    <v:String x:Key="UM_LogInTT">Authorization of admin using rfid code. If you have admin access you will be able to use the whole software's functionality
+    </v:String>
+    <v:String x:Key="UM_LogOutTT">Log out from admin
+    </v:String>
+
+    <!--UserInfo_Find-->
+    <v:String x:Key="UF_SearchTT">Find the employee
+    </v:String>
+    <v:String x:Key="UF_ClearTT">Clear all fields
+    </v:String>
+
+    <!--AboutUser-->
+    <v:String x:Key="AU_StatusTT">Employee status (in/out)
+    </v:String>
+    <v:String x:Key="AU_InfoRfidTT">Page of attaching of rfid code to new employee
+    </v:String>
+    <v:String x:Key="AU_EditEmployeeTT">Page of employee edit
+    </v:String>
+    <v:String x:Key="AU_ReporTT">Page of employee's report
+    </v:String>
+    <v:String x:Key="AU_AddCommentTT">Rfid and employee comment
+    </v:String>
+
+    <!--All Date Page-->
+    <v:String x:Key="ADP_GetInformationTT">Getting the number of worked hours in the given interval
+    </v:String>
+
+    <!--AthorizeAdminPage-->
+    <v:String x:Key="AAP_SubmitTT">Confirm autorization
+    </v:String>
+
+    <!--EmailSettingPage-->
+    <v:String x:Key="ESP_SaveChangesTT">Save the changes in email sending settings
+    </v:String>
+
+    <!--ExcelSettingPage-->
+    <v:String x:Key="ExSP_SetFilePathTT">Choose the path to the folder
+    </v:String>
+    <v:String x:Key="ExSP_SaveChangesTT">Save the changes in email sending settings
+    </v:String>
+
+    <v:String x:Key="FP_listMainInfoTT">Show the table with employee's information
+    </v:String>
+    <v:String x:Key="FP_listMothlyReportTT">Show the table of the summary time in the office, by month
+    </v:String>
+    <v:String x:Key="FP_listDepartamentreportTT">Show the table with number of empoyees by department
+    </v:String>
+    <v:String x:Key="FP_listWorkedHourseTT">Get the number of worked hours by all emloyees or chosen ones from the table Main Information
+    </v:String>
+    <v:String x:Key="FP_listGeneratingAndSendingExcelTT">Sending and creating of excel table following date from tables Main Information, Monthly Report, Report by Departments
+    </v:String>
+    <v:String x:Key="FP_listNotWorkedDayTT">Setting or getting the dates, when the employee was absent, in the Main Information table. Setting the public holidays for all employees
+    </v:String>
+    <v:String x:Key="FP_UnselecctButtonTT">Unselect user in table</v:String>
+    <!--Створення файлу excel з 3 таблицями в вибраній в "налаштуваннях excel" таблиці-->
+    <v:String x:Key="FP_SendingExcelTableTT">Sending and creating of excel table following date from tables Main Information, Monthly Report, Report by Departments
+    </v:String>
+
+    <v:String x:Key="FP_HolidayTT">Setting or getting the dates, when the employee was absent, in the Main Information table. Setting the public holidays for all employees
+    </v:String>
+    <v:String x:Key="FP_DayOffTT">Select the category for setting and getting public holidays for all employess
+    </v:String>
+    <v:String x:Key="FP_DaysOfAbsenceTT">Select the category for setting and getting days when the employee took a day off
+    </v:String>
+    <v:String x:Key="FP_VacationsTT">Select the category for setting and getting days when the employee was present at work
+    </v:String>
+
+    <v:String x:Key="FP_AddIntervalDateTT">SAdd a days in the calendar in chosen interval and category
+
+    </v:String>
+    <v:String x:Key="FP_AddSingleDateTT">Add a days in the calendar in chosen interval and category
+    </v:String>
+
+    <v:String x:Key="FP_ExcelButtonTT">Creating of Excel table with reports. With 2 sheets if the employee is not chosen in Main Information and with 3 sheets, if chosen. In chosen folder in Excel settings
+
+    </v:String>
+    <v:String x:Key="FP_EmailButtonTT">Sending of Excel report on the e-mail
+
+    </v:String>
+
+    <!--GetRfidWindow-->
+    <v:String x:Key="GRW_SubmitTT">Setting of employee's status (in/out of the office) and output of his/her information. When the employee is leaving, his worked hours are saved in the database
+    </v:String>
+
+    <!--LanguageSetting-->
+    <v:String x:Key="LS_SaveChangesTT">Change and save interface language
+    </v:String>
+
+    <!--LimitSetting-->
+    <v:String x:Key="LimS_SaveChangesTT">Save the changes of max. time spend in the office and of interval of audit. #x0a; If the employee have forgotten to use his rfid card when leaving the office,#x0a; he will get automatically status "Out of the office" and amout of hours set in the field "Max. time in office" will be enrolled"
+
+    </v:String>
+
+    <!--LinkingRfidSetting-->
+    <v:String x:Key="LR_DetachTT">Unpin the rfid code from the employee
+    </v:String>
+    <v:String x:Key="LR_AtachTT">Attach new rfid code to the employee
+    </v:String>
+
+    <!--Setting-->
+    <v:String x:Key="LR_PersonalizationTT">Settings of theme color scheme and turning on/off the hints
+    </v:String>
+    <v:String x:Key="LR_EmailTT">Setting of email from Excel tables with reports which will be sent.
+    </v:String>
+    <v:String x:Key="LR_ExcelTT">Chosing the folder where Excel reports will be saved
+    </v:String>
+
+    <v:String x:Key="LR_LimitTT">Setting of max. time spend in the office and of interval of audit. If the employee have forgotten to use his rfid card when leaving the office, he will get automatically status "Out of the office" and amout of hours set in the field "Max. time in office" will be enrolled
+    </v:String>
+    <v:String x:Key="LR_LanguageTT">Change and save interface language
+    </v:String>
+
+
+    <!--AddUser-->
+    <v:String x:Key="S_UploadTT">Upload employee's photo
+    </v:String>
+    <v:String x:Key="S_SaveChangesTT">Add a new employee or save edited information about employee
+    </v:String>
+
+    <v:String x:Key="S_PhotoTT">Upload employee's photo
+    </v:String>
+    <v:String x:Key="S_PersonalInfoTT">Add/change private information of employee
+    </v:String>
+    <v:String x:Key="S_ContactManTT">Add/change information Contact Person employee
+    </v:String>
+    <v:String x:Key="S_DepInfoTT">Add/change information about department (where employees are working) and it's head
+
+    </v:String>
+    <v:String x:Key="S_WorkingDayTT">Add/change time when employee must come to or leave the office, luch time and beeing late time
+    </v:String>
+    <v:String x:Key="S_RfidNumberionTT">Add Rfid number which will be attached to employee
+    </v:String>
+
+
+    <v:String x:Key="S_PersonalInfoAddNumberTT">Add additional phone number
+    </v:String>
+
+    <v:String x:Key="S_CPAddNumberTT">Add additional phone number of contact person
+    </v:String>
+    <v:String x:Key="S_AddCPTT">Add additional contact person
+    </v:String>
+
+    <v:String x:Key="S_DirectorAddPhoneNumberTT">Add additional phone number
+    </v:String>
+
+    <v:String x:Key="S_AddRfid">Add reserve rfid number
+    </v:String>
+    <v:String x:Key="S_Ex_InvalidTime">Please enter valid work time</v:String>
+
+    <v:String x:Key="S_Ex_emptyNameSurname">Please enter First Name , Second Name and ThirdName</v:String>
+    <v:String x:Key="S_Ex_emptyDepInfo">Please enter Departament Name and Departament Code</v:String>
+    <v:String x:Key="S_Ex_RfidBindErr">Rfid is already binded to another user</v:String>
+    <!--WindowSnapRFID-->
+    <v:String x:Key="WSR_Submit">Save newly attached to employee rfid number
+    </v:String>
+
+    
+    <!--LocaizateInCode-->
+    <!--WindowSnapRFID-->
+    <v:String x:Key="LR_LouseRfidComment">lost</v:String>
+    <v:String x:Key="GRW_Err_EnterRfidPleas">Enter Rfid, please</v:String>
+    <v:String x:Key="GRW_AllRfidArhive">All rfid user is arhive</v:String>
+    <v:String x:Key="GRW_ToolTipOn">ToolTipOn</v:String>
+    <v:String x:Key="GRW_ToolTipOff">ToolTipOff</v:String> 
+    <v:String x:Key="addu_Director">Is Director</v:String>
+    <v:String x:Key="addu_Serch">Search</v:String>
+    
+    <v:String x:Key="au_btnComin">Set Employee came in</v:String>
+    <v:String x:Key="au_btnComout">Set Employee came out</v:String>
+    <v:String x:Key="au_btnComeTT">Set status employee in office/out office and add record in report</v:String>
+</ResourceDictionary>

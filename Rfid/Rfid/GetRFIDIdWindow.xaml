@@ -1,0 +1,14 @@
+﻿<Window x:Class="Rfid.GetRFIDIdWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rfid"
+        mc:Ignorable="d"
+        Title="GetRFIDIdWindow" Height="113.426" Width="173.475">
+    <Grid>
+        <TextBox x:Name="TBGetRfidId" HorizontalAlignment="Left" Height="23" Margin="10,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <Button x:Name="BOK" Content="OK" HorizontalAlignment="Left" Margin="44,52,0,0" VerticalAlignment="Top" Width="75" Click="BOK_Click"/>
+
+    </Grid>
+</Window>

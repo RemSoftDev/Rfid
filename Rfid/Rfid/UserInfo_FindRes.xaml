@@ -1,0 +1,55 @@
+﻿<Page x:Class="Rfid.UserInfo_FindRes"
+      Name="MainWind"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rfid"     
+      
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="UserInfo_FindRes">
+    
+    <ScrollViewer>
+        <Grid Name="MainGrid" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>-->
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>-->
+
+        <!--<Label  Grid.Row="0" Grid.Column="0" Content="First Name" />
+        <TextBlock Text="111111" Grid.Row="0" Grid.Column="1" Name="TB_User_FirstName"></TextBlock>
+
+        <Label  Grid.Row="1" Grid.Column="0" Content="Second Name" />
+        <TextBlock Text="111111" Grid.Row="1" Grid.Column="1" Name="TB_User_SecondName"/>
+
+        <Label  Grid.Row="2" Grid.Column="0" Content="Third Name" />
+        <TextBlock Text="111111" Grid.Row="2" Grid.Column="1" Name="TB_User_ThirdName"/>
+
+        <Label  Grid.Row="3" Grid.Column="0" Content="Phone Number" />
+        <TextBlock Text="111111" Grid.Row="3" Grid.Column="1" Name="TB_User_PhoneNumber"/>
+
+        <Label  Grid.Row="4" Grid.Column="0" Content="Department Name" />
+        <TextBlock Text="111111" Grid.Row="4" Grid.Column="1" Name="TB_User_DepartmentName"/>
+
+        <Label  Grid.Row="5" Grid.Column="0" Content="Department Director" />
+        <TextBlock Text="111111" Grid.Row="5" Grid.Column="1" Name="TB_User_DepartmentDirector"/>
+
+        <Label  Grid.Row="6" Grid.Column="0" Content="Address" />
+        <TextBlock Text="111111" Grid.Row="6" Grid.Column="1" Name="TB_User_Address"/>
+
+        <Image Grid.Row="0" Grid.Column="3" Grid.RowSpan="3" Source="/Photos/11111.jpg"  />
+        <Button  Grid.Row="6" Grid.Column="3" Content="Go to user profile" Click="Button_GoToUserProfile" />-->
+    </Grid>
+        </ScrollViewer>
+</Page>

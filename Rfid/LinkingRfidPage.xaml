@@ -1,0 +1,156 @@
+﻿<Page x:Class="Rfid.LinkingRfidPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rfid"
+      mc:Ignorable="d"
+      Title="{DynamicResource au_l_RfidInfo}" 
+      Loaded="Page_Loaded">
+    <Page.Resources>
+
+
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ColorRegular}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="Width" Value="460" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+
+
+        <Style TargetType="TextBlock" x:Key="InputTextBlock">
+            <Setter Property="Margin" Value="10,5,10,5"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="Windows10BaseButton">
+            <Setter Property="Width" Value="460"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Name="thisButton" Background="{DynamicResource ColorRegular}">
+                            <ContentPresenter />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+
+                                <Setter TargetName="thisButton"
+                                        Property="Background" 
+                                        Value="{DynamicResource ColorHover}"/>
+                            </Trigger>
+
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter TargetName="thisButton"
+                                        Property="Background" 
+                                        Value="{DynamicResource ColorPressed}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+    <ScrollViewer>
+        <Grid Margin="10">
+            <StackPanel Grid.Column="0"
+                            HorizontalAlignment="Center">
+                <TextBlock x:Name="label"
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource lin_l_rfidCode}"
+                            
+                            />
+                <TextBox    IsEnabled="False"
+                            Grid.Column="0"
+                            Name="RFIDCodeTags"                       
+                            />
+                <TextBlock  x:Name="label1"
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource lin_l_AddingDate}"                          
+                            />
+                <TextBox x:Name="LAadded"
+                            IsEnabled="False"
+                            Grid.Column="0"
+                                                      
+                            />
+                <Button x:Name="BUnlinkRFIDTag" 
+                        Style="{StaticResource Windows10BaseButton}"                     
+                        HorizontalAlignment="Center" 
+                        ToolTip="{DynamicResource LR_DetachTT}"
+                        Click="ClickUlinkRFID" >
+                    <Button.Content>
+                        <StackPanel HorizontalAlignment="Center"
+                                             Orientation="Horizontal"
+                                             VerticalAlignment="Center"
+                                             Background="Transparent">
+
+                            <TextBlock Foreground="{DynamicResource ColorForeground}"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       FontSize="34"
+                                       Text="&#xE77A;"
+                                       Margin="5,5,20,5"/>
+                            <TextBlock FontFamily="Segoue UI"
+                                           FontSize="14"   
+                                           VerticalAlignment="Center"
+                                           Foreground="{DynamicResource ColorForeground}"
+                                           Text="{DynamicResource lin_btn_DetachRfid}"/>
+
+                        </StackPanel>
+                    </Button.Content>
+
+                </Button>
+
+
+                <TextBlock x:Name="LCommentRFID" 
+                           Text="{DynamicResource lin_l_Comment}" 
+                           Style="{StaticResource InputTextBlock}"/>
+                <TextBox    IsEnabled="False"
+                            Grid.Column="0"
+                            Name="LCommentRFIDR"                       
+                            />
+                <Button x:Name="SnapRFIDtag" 
+                        Style="{StaticResource Windows10BaseButton}"
+                        Click="SnapRFIDTag" 
+                        ToolTip="{DynamicResource LR_AtachTT}"
+                        HorizontalAlignment="Center">
+                    <Button.Content>
+                        <StackPanel HorizontalAlignment="Center"
+                                             Orientation="Horizontal"
+                                             VerticalAlignment="Center"
+                                             Background="Transparent">
+
+                            <TextBlock Foreground="{DynamicResource ColorForeground}"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       FontSize="34"
+                                       Text="&#xE71B;"
+                                       Margin="5,5,20,5"/>
+                            <TextBlock FontFamily="Segoue UI"
+                                           FontSize="14"   
+                                           VerticalAlignment="Center"
+                                           Foreground="{DynamicResource ColorForeground}"
+                                           Text="{DynamicResource lin_btn_AttachRfid}"/>
+
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+
+
+                <TextBlock x:Name="LRegistryChangesRFIDtags" 
+                           Text="{DynamicResource lin_l_Hisory}"
+                            Style="{StaticResource InputTextBlock}"/>
+                <DataGrid x:Name="GridRegistryChangesRFIDtags" 
+                          Margin="10,5,10,5"
+                          HorizontalAlignment="Stretch" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

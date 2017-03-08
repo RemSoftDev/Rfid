@@ -1,0 +1,92 @@
+﻿<Page x:Class="Rfid.SettingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rfid"
+      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+      mc:Ignorable="d"
+      Background="{DynamicResource ColorBackground}"
+      Title="{DynamicResource mSetting}"
+      Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock"  x:Key="Icon">
+            <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}" />
+            <Setter Property="Height" Value="100" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Margin" Value="20,0,0,30" />
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="85" />
+        </Style>
+        <Style TargetType="Controls:Tile">
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Margin" Value="15" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="Width" Value="200" />
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer>
+        <WrapPanel Margin="40">
+            <Controls:Tile x:Name="TilePersonalization"
+                           ToolTip="{DynamicResource LR_PersonalizationTT}"
+                       Title="{DynamicResource s_t_Personalization}"  
+                       Click="TilePersonalization_Click">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE771;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+            <Controls:Tile x:Name="TileSendingEmail"
+                           ToolTip="{DynamicResource LR_EmailTT}"
+                       Title="{DynamicResource s_t_EmailSend}"  
+                       Click="TileSendingEmail_Click">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE119;" />
+                </Controls:Tile.Content>
+            
+            </Controls:Tile>
+
+            <Controls:Tile x:Name="TileExcelSetting"
+                       Title="{DynamicResource s_t_ExcelSetting}"  
+                       Click="TileExcelSetting_Click"
+                           ToolTip="{DynamicResource LR_ExcelTT}">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE1DC;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+            <Controls:Tile x:Name="TileLimitSetting"
+                           ToolTip="{DynamicResource LR_LimitTT}"
+                       Title="{DynamicResource s_t_LimitSetting}"  
+                       Click="TileLimitSetting_Click">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE748;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+            <Controls:Tile x:Name="LanguageSetting"
+                           ToolTip="{DynamicResource LR_LanguageTT}"
+                       Title="{DynamicResource s_t_LanguageSetting}"  
+                       Click="LanguageSetting_Click">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE164;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+        </WrapPanel>
+    </ScrollViewer>
+</Page>

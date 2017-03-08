@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rfid", "Rfid\Rfid.csproj", "{A93AF8DF-2CB9-436D-891B-75949F9FE273}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A93AF8DF-2CB9-436D-891B-75949F9FE273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A93AF8DF-2CB9-436D-891B-75949F9FE273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A93AF8DF-2CB9-436D-891B-75949F9FE273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A93AF8DF-2CB9-436D-891B-75949F9FE273}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://struggleendlessly.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Rfid\\Rfid.csproj
+		SccProjectName1 = Rfid
+		SccLocalPath1 = Rfid
+	EndGlobalSection
+EndGlobal

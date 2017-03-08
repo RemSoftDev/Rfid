@@ -1,0 +1,277 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Rfid"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    
+    <!--UserInfo_Main page-->
+    <v:String x:Key="mFindUSer">Поиск</v:String>
+    <v:String x:Key="mAddUser">Добавить работника</v:String>
+    <v:String x:Key="mStart">Запуск</v:String>
+    <v:String x:Key="mReports">Отчет</v:String>
+    <v:String x:Key="mSetting">Настройки</v:String>
+    <v:String x:Key="mAuthorize">
+        Авторизация</v:String>
+    <!--FindUser page-->
+    <v:String x:Key="u_b_Find">Поиск</v:String>
+    <v:String x:Key="u_b_Clear">Очистить</v:String>
+    <!--User Property-->
+    <v:String x:Key="u_l_FirstName">Имя</v:String>
+    <v:String x:Key="u_l_SecondName">Фамилия</v:String>
+    <v:String x:Key="u_l_ThirdName">Отчество</v:String>
+    <v:String x:Key="d_l_FirstName">Имя руководителя отдела</v:String>
+    <v:String x:Key="d_l_SecondName">Фамилия руководителя отдел</v:String>
+    <v:String x:Key="d_l_ThirdName">Отчество руководителя отдела</v:String>
+    <v:String x:Key="u_l_Phone">Номер телефона</v:String>
+    <v:String x:Key="u_l_DepartmentName">Название отделения</v:String>
+    <v:String x:Key="u_l_DepartmentCode">Номер отделения</v:String>
+    <v:String x:Key="u_l_DepartmentDirector">Имя руководителя отдела</v:String>
+    <v:String x:Key="u_l_Addres">Адрес</v:String>
+    <v:String x:Key="u_l_Birthday">
+        День рождения</v:String>
+    <v:String x:Key="u_l_RfidNumber">Номер Rfid</v:String>
+    <!--About User page-->
+    <v:String x:Key="au_l_UserMainInformation">Персональная информация о работнике</v:String>
+    <v:String x:Key="au_l_UserInformation">
+        Информация о работнике</v:String>
+    <v:String x:Key="au_l_DepartmentInfo">Информация об отделении</v:String>
+    <v:String x:Key="au_l_ContactMan">Информация о контактных лицах</v:String>
+    <v:String x:Key="au_l_RfidInformation">Информация о Rfid</v:String>
+    <v:String x:Key="au_l_AddComents">Добавить комментарий</v:String>
+    <v:String x:Key="au_l_Coments">Комментарий к работнику</v:String>
+    <v:String x:Key="au_l_RfidComents">Комментарий к Rfid</v:String>
+    <v:String x:Key="au_l_Status" xml:space="preserve">Cтатус: </v:String>
+    <v:String x:Key="au_l_StatusOn">Работник в офисе</v:String>
+    <v:String x:Key="au_l_StatusOff">Работник не в офисе</v:String>
+    <v:String x:Key="au_l_RfidInfo">Информация о Rfid</v:String>
+    <v:String x:Key="au_l_editUser">Редактировать работника</v:String>
+    <!--Linking Rfid-->
+    <v:String x:Key="lin_l_rfidCode">Rfid номер</v:String>
+    <v:String x:Key="lin_l_AddingDate">Дата добавления</v:String>
+    <v:String x:Key="lin_btn_DetachRfid">Открепить Rfid</v:String>
+    <v:String x:Key="lin_l_Comment">Комментарий</v:String>
+    <v:String x:Key="lin_btn_AttachRfid">Добавить Rfid номер</v:String>
+    <v:String x:Key="lin_l_Hisory">История изменений Rfid</v:String>
+    <!--WindowSnapRFID-->
+    <v:String x:Key="enterRfid_label">Введите Rfid номер</v:String>
+    <v:String x:Key="enterRfid_btn">Подтвердить</v:String>
+    <!--Add Update User-->
+    <v:String x:Key="addu_Admin">Администратор</v:String>
+    <v:String x:Key="addu_btn_addPhoneNumber">Добавить номер телефону</v:String>
+    <v:String x:Key="addu_btn_moreContactPerson">Добавить еще одно контактное лицо</v:String>
+    <v:String x:Key="addu_btn_addImage">Загрузить фотографию</v:String>
+    <v:String x:Key="addu_btn_addRfid">Добавить Rfid</v:String>
+    <v:String x:Key="addu_start">Начало рабочего дня</v:String>
+    <v:String x:Key="addu_end">Конец рабочего дня</v:String>
+    <v:String x:Key="addu_valid">Насколько &#x0d; разрешено&#x0d; опоздать</v:String>
+    <v:String x:Key="addu_dinnerTime">Обеденный перерыв</v:String>
+    <v:String x:Key="addu_btn_saveChanges">Сохранить изменения</v:String>
+    <v:String x:Key="addu_lbi_UpdateImage">Фото</v:String>
+    <v:String x:Key="addu_lbi_UserInformation">Информация о работнике</v:String>
+    <v:String x:Key="addu_lbi_ContactPeople">Контактные лица</v:String>
+    <v:String x:Key="addu_lbi_WorkTime">Время работы</v:String>
+    <v:String x:Key="addu_lbi_DepInfo">Информация об отделе</v:String>
+    <v:String x:Key="addu_RfidNumber">Номер Rfid</v:String>
+    <!--FPPage-->
+    <v:String x:Key="fp_lbi_MainInformation">Основная информация</v:String>
+    <v:String x:Key="fp_lbi_MonthlyReport">Месячный отчет</v:String>
+    <v:String x:Key="fp_lbi_DepReport">Отчет по отделениям</v:String>
+    <v:String x:Key="fp_lbi_HourseWork">Отработанные часы</v:String>
+    <v:String x:Key="fp_lbi_Excel">Генерация и отправка в Excel</v:String>
+    <v:String x:Key="Holidays">Нерабочие дни</v:String>
+    <v:String x:Key="fp_btn_unselect">Отменить выбор</v:String>
+    <v:String x:Key="fp_btn_generExcel">Сгенерировать excel </v:String>
+    <v:String x:Key="fp_btn_sendFile">Отправка excel таблицы</v:String>
+    <v:String x:Key="fp_l_chseFile">Выберите файл</v:String>
+    <v:String x:Key="fp_l_EmailAddres">Адрес получателя</v:String>
+    <v:String x:Key="fp_btn_DayOff">Отгулы</v:String>
+    <v:String x:Key="fp_btn_DaysAbvense">Прогули</v:String>
+    <v:String x:Key="fp_btn_Holidays">Празники</v:String>
+    <v:String x:Key="fp_btn_Vacations">Отпуск</v:String>
+    <v:String x:Key="fp_l_StartDate">Начальная дата</v:String>
+    <v:String x:Key="fp_l_EndDate">Конечная дата</v:String>
+    <v:String x:Key="fp_l_SangleDate">Одиночна дата</v:String>
+    <v:String x:Key="fp_btn_dd">Добавить</v:String>
+    <v:String x:Key="fp_mi_settingExcel">Открыть настройки отправки письма на почту</v:String>
+    <v:String x:Key="fp_mi_settingEmail">Открыть настройки excel</v:String>
+    <!--DatagridColumn-->
+    <v:String x:Key="dgc_stat">Пришел</v:String>
+    <v:String x:Key="dgc_end">Вышел</v:String>
+    <v:String x:Key="dgc_dinner">Обед</v:String>
+    <v:String x:Key="dgc_valid">Допустимость опоздания</v:String>
+    <v:String x:Key="dgc_date">Дата</v:String>
+    <v:String x:Key="dgc_count">Количество</v:String>
+    <v:String x:Key="dgc_countInSide">Количество сотрудников в офисе</v:String>
+    <v:String x:Key="dgc_countOutSide">Количество работников не в офисе</v:String>
+    <v:String x:Key="dgc_day">День недели</v:String>
+    <v:String x:Key="dgc_timeIn">Пришел</v:String>
+    <v:String x:Key="dgc_timeOut">Вышел</v:String>
+    <v:String x:Key="dgc_lenghtInside">Количество часов в офисе</v:String>
+    <v:String x:Key="dgc_leanghtOuside">Количество часов не в офисе</v:String>
+    <!--AllTime-->
+    <v:String x:Key="at_Inside">В офисе</v:String>
+    <v:String x:Key="at_Outside">Не в офисе</v:String>
+    <v:String x:Key="at_Week">За неделю : </v:String>
+    <v:String x:Key="at_Month">За месяц : </v:String>
+    <v:String x:Key="at_Year">За год : </v:String>
+    <v:String x:Key="at_TimeSelected">За выбранным промежутком : </v:String>
+    <v:String x:Key="at_GetData">Получит данные</v:String>
+    <!--Setting-->
+    <v:String x:Key="s_t_Personalization">Персонализация</v:String>
+    <v:String x:Key="s_t_EmailSend">Настройка отправки письма</v:String>
+    <v:String x:Key="s_t_ExcelSetting">Настройка генерирования Excel</v:String>
+    <v:String x:Key="s_t_LimitSetting">Настройка времени лимита пребывания в офисе</v:String>
+    <v:String x:Key="s_t_LanguageSetting">Выбор языка</v:String>
+    <v:String x:Key="s_l_ChangeLanguage">Сменить язык</v:String>
+    <v:String x:Key="s_l_SetFilePath">Задать путь к папке excel файлами</v:String>
+    <v:String x:Key="s_l_StmpClient">Stmp Клиент</v:String>
+    <v:String x:Key="s_l_MailFrom">Адрес отправителя</v:String>
+    <v:String x:Key="s_l_Password">Пароль отправителя</v:String>
+    <v:String x:Key="s_l_Subject">Тема письма</v:String>
+    <v:String x:Key="s_l_Body">Сообщение</v:String>
+    <v:String x:Key="s_l_LimitTime">Максимальное количество часов в офисе</v:String>
+    <v:String x:Key="s_l_Interval">Интервал проверки</v:String>
+    <v:String x:Key="s_l_DarkTheme">Темная тема</v:String>
+    <v:String x:Key="s_l_LightTheme">Светлая тема</v:String>
+    <v:String x:Key="s_l_ChangeAcccent">Изменить акцент темы</v:String>
+    <v:String x:Key="s_l_ChangeTheme">Изменить тему</v:String>
+    <v:String x:Key="s_l_SettingChangeTheme">Настройка персонализации</v:String>
+    <v:String x:Key="t_AuthorizeAdmin">Авторизация администратора</v:String>
+
+    <v:String x:Key="msb_rfidNotFound">За работником не закреплен rfid!</v:String>
+    <v:String x:Key="msb_notSelectDate">Пожалуйста выберите дату!</v:String>
+    <v:String x:Key="msb_userNotDont">Работник не найден!</v:String>
+    <v:String x:Key="msb_floderNotSelected">Выберите папку с exel файлами в настройках!</v:String>
+    <v:String x:Key="msb_userDontHaveTime">Работник еще не появлялся в офисе</v:String>
+    <v:String x:Key="msb_userDontHavePhoto">За работником не закреплено фото</v:String>
+    <v:String x:Key="msb_userNotSelected">Пожалуйста выберите работника!</v:String>
+    <v:String x:Key="msb_fileNotSekected">Выберите файл для отправки!</v:String>
+    <v:String x:Key="msb_emailNotEntered">Введите электронный адрес получателя!</v:String>
+    <v:String x:Key="msb_emailUnknownError">Ошибка отправки письма</v:String>
+    <v:String x:Key="msb_selectUserOrHolidey">Выберите работника для показа его дней когда он отсутствовал или праздники для показа государственных празников</v:String>
+    <v:String x:Key="msb_startIsBeggerEnd">Начальная дата больше конечной</v:String>
+    <v:String x:Key="msb_slectDate">Выберите дату</v:String>
+    <v:String x:Key="msb_enterRfid">Введите rfid</v:String>
+    <v:String x:Key="msb_notEnterNumber">Номер не введен</v:String>
+    <v:String x:Key="msb_setPIB">Введите Имя, Фамилия и Отчество</v:String>
+    <v:String x:Key="msb_setSelectUser">Выберите работника</v:String>
+    <v:String x:Key="m_t_logOut">Выйти з режима администратора</v:String>
+    <v:String x:Key="find_error">Работник не найден</v:String>
+
+    
+    <!--Подсказки -->
+    <!--UserInfo_Main -->
+    <v:String x:Key = "UM_SearchTT"> Страница поиска по различным критериям или совмещая их </v:String>
+    <v:String x:Key = "UM_AddTT"> Страница добавления пользователя </v:String>
+    <v:String x:Key = "UM_StartTT"> Страница входа \ выхода из оффиса </v:String>
+    <v:String x:Key = "UM_ReporttTT"> Страница отчетов о пользователе </v:String>
+    <v:String x:Key = "UM_SettingTT"> Страница настроек </v:String>
+    <v:String x:Key = "UM_LogInTT"> Авторизация администратора через рфид номер, при предоставлении прав администратора вы получаете полный функционал программы </v:String>
+    <v:String x:Key = "UM_LogOutTT"> Выйти из режима администратора </v:String>
+
+    <!--UserInfo_Find -->
+    <v:String x:Key = "UF_SearchTT"> Найти работника </v:String>
+    <v:String x:Key = "UF_ClearTT"> Очистить все поля </v:String>
+
+    <!--AboutUser -->
+    <v:String x:Key = "AU_StatusTT">Статус находится работник в офисе или нет </v:String>
+    <v:String x:Key = "AU_InfoRfidTT"> Страница закрепления нового рфида за пользователем </v:String>
+    <v:String x:Key = "AU_EditEmployeeTT"> Страница редактирования пользователей </v:String>
+    <v:String x:Key = "AU_ReporTT"> Страница отчета по пользователям </v:String>
+    <v:String x:Key = "AU_AddCommentTT"> Посмотреть комментарий по Rfid и работнику </v:String>
+
+    <!--All Date Page -->
+    <v:String x:Key = "ADP_GetInformationTT"> Получение количества отработанных часов за промежутком </v:String>
+
+    <!--AthorizeAdminPage -->
+    <v:String x:Key = "AAP_SubmitTT"> Подтвердить авторизацию </v:String>
+
+    <!--EmailSettingPage -->
+    <v:String x:Key = "ESP_SaveChangesTT"> Сохранить изменения в настройках отправки электронного письма </v:String>
+
+    <!--ExcelSettingPage-->
+    <v:String x:Key = "ExSP_SetFilePathTT">Выбрать путь к папке</v:String>
+    <v:String x:Key = "ExSP_SaveChangesTT">Сохранить изменения в настройках отправки электронного письма</v:String>
+
+    <v:String x:Key = "FP_listMainInfoTT">Показать таблицу с информацией о работнике</v:String>
+    <v:String x:Key = "FP_listMothlyReportTT">Показать таблицу проведенного в офисе времени в месяц</v:String>
+    <v:String x:Key = "FP_listDepartamentreportTT">Показать таблицу по количеству работников каждого отделения в офисе</v:String>
+    <v:String x:Key = "FP_listWorkedHourseTT">получит количество отработанных часов за всеми работниками или по выбранному из таблицы Дополнительная информация</v:String>
+    <v:String x:Key = "FP_listGeneratingAndSendingExcelTT">Отправка и Генерация таблицы excel по данным из таблиц "Дополнительная информация, Месячный отчет, Отчет по отделениям»</v:String>
+    <v:String x:Key = "FP_listNotWorkedDayTT">Введение или вывода дней когда работник избран в таблице Дополнительная информация отсутствовал, а также задания государственных выходных для всех работников</v:String>
+    <v:String x:Key = "FP_UnselecctButtonTT">Снять выделенного пользователя из таблицы</v:String>
+    <!--Создание файла excel с 3 таблицами в выбранной в "настройках excel" таблицы -->
+    <v:String x:Key = "FP_SendingExcelTableTT"> Отправка выбранного в списке файла excel по указанному адресу </v:String>
+
+    <v:String x:Key = "FP_HolidayTT"> Выбор категории для ввода и вывода государственных выходных для всех работников </v:String>
+    <v:String x:Key = "FP_DayOffTT"> Выбор категории для ввода и вывода дней когда работник отпросился с работы </v:String>
+    <v:String x:Key = "FP_DaysOfAbsenceTT"> Выбор категории для ввода и вывода дней когда работник не прогулял работу </v:String>
+    <v:String x:Key = "FP_VacationsTT"> Выбор категории для ввода и вывода дней когда работник в отпуске </v:String>
+
+    <v:String x:Key = "FP_AddIntervalDateTT"> Добавить дни в календарь выбранного промежутка, для выбранной категории </v:String>
+    <v:String x:Key = "FP_AddSingleDateTT"> Добавить день в календарь, для выбранной категории </v:String>
+
+    <v:String x:Key = "FP_ExcelButtonTT"> Создание таблицы Excel с отчетами. с 2 листами если работник в "Основной информаии» не выбран и с 3 листавмы если выбран. В выбранной в настройках Excel папке </v:String>
+    <v:String x:Key = "FP_EmailButtonTT"> Отправка на отчета в формате Excel на почту </v:String>
+
+    <!--GetRfidWindow -->
+    <v:String x:Key = "GRW_SubmitTT"> Изменения статуса работнику (в офисе) / (не в офисе) и вывод информации о нем, если работник выходит из офиса ему начисляются часа пробыть на работе </v:String>
+
+    <!--LanguageSetting -->
+    <v:String x:Key = "LS_SaveChangesTT">Изменить и сохранить язык интрефейса </v:String>
+
+    <!--LimitSetting -->
+    <v:String x:Key = "LimS_SaveChangesTT"> Сохранить изменения в изменении максимального время когда работник пробыл в офисе и интервала с которыми будут проводиться проверки.Если работник забыл провести карточкой перед выходом из офиса, программа задаст ему статус не в офисе и зачислит количество часов введенных в поле "Максимальное количество часов в офисе".
+        </v:String>
+
+    <!--LinkingRfidSetting -->
+    <v:String x:Key = "LR_DetachTT"> Открепить рфид номер от работника </v:String>
+    <v:String x:Key = "LR_AtachTT"> Прикрепить новый рфид номер к работнику </v:String>
+
+    <!--Setting -->
+    <v:String x:Key = "LR_PersonalizationTT"> Настройка темы цветов программы и добавления удаления подсказок </v:String>
+    <v:String x:Key = "LR_EmailTT"> Настройка почты из которой будет отправляться Excel таблицы с отчетами </v:String>
+    <v:String x:Key = "LR_ExcelTT">Выбор папки на компьютере где будут сохраняться отчеты в формате Excel </v:String>
+    
+    <v:String x:Key = "LR_LimitTT"> Настройка максимального время когда работник пробыл в офисе и интервала с которыми будут проводиться проверки.
+        Если работник забыл провести карточкой перед выходом из офиса,
+        программа задаст ему статус не в офисе и зачислит количество часов введенных в поле "Максимальное количество часов в офисе </v:String>
+    <v:String x:Key = "LR_LanguageTT"> Сохранить и изменить язык интерфейса </v:String>
+
+    <!--AddUser -->
+    <v:String x:Key = "S_UploadTT"> Скачать фотографию для работника </v:String>
+    <v:String x:Key = "S_SaveChangesTT"> Добавить нового работника или сохранить отредактированную информацию о работнике </v:String>
+
+    <v:String x:Key = "S_PhotoTT"> Скачать фотограию работника </v:String>
+    <v:String x:Key = "S_PersonalInfoTT"> Добавить / Изменить персональную информацию о работнике </v:String>
+    <v:String x:Key = "S_ContactManTT"> Добавить / Изменить информацию о людях через которых можно связаться с работником </v:String>
+    <v:String x:Key = "S_DepInfoTT"> Добавить / Изменить информацию об отделении и руководителя отделения в котором работает работник </v:String>
+    <v:String x:Key = "S_WorkingDayTT"> Добавить / Изменить время в которые работник должен прийти и уйти из офиса, время когда начинается обед, и на сколько разрешено опоздать </v:String>
+    <v:String x:Key = "S_RfidNumberionTT"> Добавить рфид номер который будет закреплен за работником </v:String>
+
+    <v:String x:Key = "S_PersonalInfoAddNumberTT">Добавить еще один номер телефона если у работника их несколько</v:String>
+    <v:String x:Key = "S_CPAddNumberTT"> Добавить еще один номер телефона контактного лица </v:String>
+    <v:String x:Key = "S_AddCPTT">Добавить еще одно контакное лицо через которого можно связаться с работником</v:String>
+    <v:String x:Key = "S_DirectorAddPhoneNumberTT">Добавить еще один номер телефона если у руководителя их несколько</v:String>
+    <v:String x:Key = "S_AddRfid">Добавить запасной рфид номер</v:String>
+    <v:String x:Key="S_Ex_InvalidTime">Пожалуйста, введите правильное время работы</v:String>
+    <v:String x:Key="S_Ex_emptyNameSurname">Пожалуйста, введите  имя, фамилия, отчество</v:String>
+    <v:String x:Key="S_Ex_emptyDepInfo">Пожалуйста, введите название и код департамента</v:String>
+    <v:String x:Key="S_Ex_RfidBindErr">Rfid уже привязан к другому пользователю</v:String>
+    <!--WindowSnapRFID -->
+    <v:String x:Key = "WSR_Submit"> Сохранить новый, закрепленый за работником номер рфида</v:String>
+
+    <!--LocaizateInCode-->
+    <!--WindowSnapRFID-->
+    <v:String x:Key="LR_LouseRfidComment">потерянный</v:String>
+    <v:String x:Key="GRW_Err_EnterRfidPleas">Пользователя с этим номером Рфида не найдено</v:String>
+    <v:String x:Key="GRW_AllRfidArhive">Все номеры Рфидов работника заархивированные</v:String>
+    <v:String x:Key="GRW_ToolTipOn">Подсказки включенные</v:String>
+    <v:String x:Key="GRW_ToolTipOff">Подсказки отключены</v:String>
+    <v:String x:Key="addu_Director">Является руководителем отделения</v:String>
+    <v:String x:Key="addu_Serch">Поиск</v:String>
+
+    <v:String x:Key="au_btnComin">Указать что работник в офисе</v:String>
+    <v:String x:Key="au_btnComout">Указать что работник не в офисе</v:String>
+    <v:String x:Key="au_btnComeTT">Указать что работник в офисе / не в офисе и добавить запись в отчет</v:String>
+
+</ResourceDictionary>

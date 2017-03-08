@@ -1,0 +1,128 @@
+﻿<Page x:Class="Rfid.StartUpPage"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:Rfid"
+                 Title="Rfid"
+                 Background="{DynamicResource ColorBackground}"
+     
+                 Loaded="Page_Loaded">
+    <!--Background="#5A5050"-->
+    <Page.Resources>
+        <Style TargetType="TextBlock"  x:Key="Icon">
+            <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}" />
+                
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="85" />
+        </Style>
+        <Style TargetType="Controls:Tile">
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Margin" Value="15" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="Width" Value="200" />
+        </Style>
+    </Page.Resources>
+    
+    <ScrollViewer>
+        <WrapPanel Margin="40">
+            <!--<Border BorderThickness="2" BorderBrush="#cfcfcf" Margin="15" >-->
+            <Controls:Tile Name="FindUserTile"
+                       Title="{DynamicResource mFindUSer}"  
+                       Click="Button_User_Find"
+                       ToolTip="{DynamicResource UM_SearchTT}"
+                           >
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE721;" />
+                </Controls:Tile.Content>
+                
+            </Controls:Tile>
+
+            <Controls:Tile Name="AddUserTile"
+                       Title="{DynamicResource mAddUser}"  
+                       Click="Button_User_Add"
+                       ToolTip="{DynamicResource UM_AddTT}">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text=" &#xE1E2;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+            <Controls:Tile Name="StartTile"
+                       Title="{DynamicResource mStart}"
+                       FontSize="25"
+                       Width="400"
+                       Click="Button_RfidStart"
+                       ToolTip="{DynamicResource UM_StartTT}">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE937;" HorizontalAlignment="Right"/>
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+            <Controls:Tile Name="BigInfoTile"
+                       ToolTip="{DynamicResource UM_ReporttTT}"
+                       Title="{DynamicResource mReports}"   
+                       Margin="15"
+                       Click="Button_BigInfo">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE136;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+            <Controls:Tile Name="SettingTile"
+                           ToolTip="{DynamicResource UM_SettingTT}"
+                       Title="{DynamicResource mSetting}"  
+
+                       Margin="15"
+                       Click="SettingTile_Click">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE713;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+            <Controls:Tile Name="AuthorizeAdmin"
+                           ToolTip="{DynamicResource UM_LogInTT}"
+                           Title="{DynamicResource mAuthorize}"  
+                           Margin="15"
+                           Click="AuthorizeAdmin_Click">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE785;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+
+            <Controls:Tile Name="LogOutTile"
+                           ToolTip="{DynamicResource UM_LogOutTT}"
+                       Title="{DynamicResource m_t_logOut}"  
+                       Margin="15"
+                       Click="LogOut_Click"
+                       Visibility="Collapsed">
+                <Controls:Tile.Content>
+                    <TextBlock Style="{StaticResource Icon}" 
+                         Text="&#xE785;" />
+                </Controls:Tile.Content>
+
+            </Controls:Tile>
+
+
+
+
+        </WrapPanel>
+    </ScrollViewer>
+
+</Page>

@@ -1,0 +1,34 @@
+﻿<Page x:Class="Rfid.UserInfo_Main"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rfid"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="UserInfo_Main">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Click="Button_User_Find" Name="B_User_Find"  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Content="Find User" />
+        <Button Click="Button_User_Add" Name="B_User_Add"  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" Content="Add User" />
+        <Button Click="Button_RfidStart" Name="B_RfidStart"  Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Content="Rfid Start" />
+        <Button Click="Button_BigInfo" Name="B_BigInfo"  Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" Content="Big Info" />
+        <TextBox x:Name="T_ErrorConnectMessage" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="     Sorry! Please, connect equipment to the computer.    " VerticalAlignment="Top" Background="Red" FontFamily="Times New Roman" FontSize="24" Visibility="Hidden"/>
+        <Button x:Name="button" Content="First Page" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="60" Height="43" Click="button_Click"/>
+    </Grid>
+</Page>

@@ -1,0 +1,327 @@
+﻿<Page x:Class="Rfid.ReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rfid"
+      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"  
+      mc:Ignorable="d"
+      Title="{DynamicResource mReports}"
+      Loaded="Page_Loaded"  >
+
+    <Page.Resources>
+
+
+        <Style TargetType="Controls:DateTimePicker">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="110" />
+            <Setter Property="IsClockVisible" Value="False" />
+        </Style>
+
+
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ColorRegular}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="Width" Value="460" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Background" Value="{DynamicResource ColorBackground}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+        </Style>
+        
+        <Style TargetType="TextBlock">
+           <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+        </Style>
+
+        <Style BasedOn="{StaticResource Windows10BaseButton}" 
+               TargetType="Button" x:Key="CalendarButton">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+        
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--ListOptions-->
+        <ListBox Name="OptionsList" Grid.Column="0" 
+                 Background="{DynamicResource AccentColorBrush}"
+                 Width="160"
+                ><!--Background="#2b2b2b"-->
+
+            <ListBoxItem Name="SelectedBasicInformation" 
+                         ToolTip="{DynamicResource FP_listMainInfoTT}"
+                         MouseLeftButtonUp="SelectedBasicInformation_MouseLeftButtonUp"
+                         >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5"
+                               FontFamily="Segoe MDL2 Assets"
+                               FontSize="34"
+                               TextAlignment="Left"
+                               Text="&#xE136;"
+                               />
+                    <TextBlock Width="100"
+                               TextWrapping="WrapWithOverflow" 
+                               FontFamily="Segoue UI"
+                               Margin="3,0,0,0"
+                               FontSize="14"
+                               VerticalAlignment="Center"                              
+                               Text="{DynamicResource fp_lbi_MainInformation}">
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Name="SelectedMonthlyReport" 
+                         ToolTip="{DynamicResource FP_listMothlyReportTT}"
+                         MouseLeftButtonUp="SelectedMonthlyReport_MouseLeftButtonUp">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5"
+                               FontFamily="Segoe MDL2 Assets"
+                               FontSize="34"
+                               TextAlignment="Left"
+                               Text="&#xE8BF;"
+                               />
+                    <TextBlock 
+                         Width="100"
+                               TextWrapping="WrapWithOverflow" 
+                        FontFamily="Segoue UI"
+                               Margin="3,0,0,0"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                              Text="{DynamicResource fp_lbi_MonthlyReport}">
+
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Name="SelectedDepartamentReport" 
+                         ToolTip="{DynamicResource FP_listDepartamentreportTT}"
+                         MouseLeftButtonUp="SelectedDepartamentReport_MouseLeftButtonUp">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5"
+                               FontFamily="Segoe MDL2 Assets"
+                               FontSize="34"
+                               TextAlignment="Left"
+                               Text="&#xE825;"
+                               />
+                    <TextBlock 
+                         Width="100"
+                               TextWrapping="WrapWithOverflow" FontFamily="Segoue UI"
+                               Margin="3,0,0,0"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               Text="{DynamicResource fp_lbi_DepReport}">
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Name="SelectedAllTime" 
+                         ToolTip="{DynamicResource FP_listWorkedHourseTT}"
+                         MouseLeftButtonUp="buttonAllTime_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5"
+                               FontFamily="Segoe MDL2 Assets"
+                               FontSize="34"
+                               TextAlignment="Left"
+                               Text="&#xECC5;"
+                               />
+                    <TextBlock  Width="100"
+                               TextWrapping="WrapWithOverflow" 
+                        FontFamily="Segoue UI"
+                               Margin="3,0,0,0"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               Text="{DynamicResource fp_lbi_HourseWork}">
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Name="GenerationExcel"
+                         ToolTip="{DynamicResource FP_listGeneratingAndSendingExcelTT}"
+                         MouseLeftButtonUp="GenerationExcel_MouseLeftButtonUp">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5"
+                               FontFamily="Segoe MDL2 Assets"
+                               FontSize="34"
+                               TextAlignment="Left"
+                               Text="&#xE130;"
+                               />
+                    <TextBlock  Width="100"
+                               TextWrapping="WrapWithOverflow" 
+                               FontFamily="Segoue UI"
+                               Margin="3,0,0,0"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                              Text="{DynamicResource fp_lbi_Excel}">
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Name="CalendarWeekend" 
+                         ToolTip="{DynamicResource FP_listNotWorkedDayTT}"
+                         MouseLeftButtonUp="CalendarWeekend_MouseLeftButtonUp">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5"
+                               FontFamily="Segoe MDL2 Assets"
+                               FontSize="34"
+                               TextAlignment="Left"
+                               Text="&#xED28;"
+                               />
+                    <TextBlock  Width="100"
+                               TextWrapping="WrapWithOverflow" 
+                        FontFamily="Segoue UI"
+                               Margin="3,0,0,0"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               Text="{DynamicResource Holidays}">
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+
+        </ListBox>
+
+
+        <Grid Grid.Column="1">
+            <!--ViewBaseicInformation-->
+            <Grid Name="ViewBasicInformation" 
+                  Visibility="Visible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <ScrollViewer >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                  
+                    <DataGrid Grid.Column="0"
+                              VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Auto"
+                              x:Name="GridBasicInformation" 
+                              SelectionChanged="GridBasicInformation_SelectionChanged"
+                              Margin="15"                               
+                              AutoGeneratingColumn="GridBasicInformation_AutoGeneratingColumn"
+                              AutoGeneratedColumns="GridBasicInformation_AutoGeneratedColumns"
+                              />
+                      
+                    </Grid>
+                </ScrollViewer>
+
+                <StackPanel Grid.Column="1"
+                            MouseLeftButtonUp="ClickPhotoUser"
+                            Background="{DynamicResource AccentColorBrush}" >
+                    <TextBlock Name="NameUser"
+                           Text="Name User"
+                           FontSize="24"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           MaxWidth="220"
+                           TextWrapping="WrapWithOverflow"
+                               
+                           
+                           Margin="15,15,20,15"/>
+ 
+                    <Ellipse
+                            Height="256"
+                            Width="256"
+
+                            Margin="15"
+                           >
+                        <Ellipse.Fill>
+                            <ImageBrush 
+                                       x:Name="imageReport"
+                                       Stretch="UniformToFill"
+                                       ImageSource="/Image/ProfileIcon.png"
+                                      />
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <Button Width="130" VerticalAlignment="Top"
+                        x:Name="UnselecctButton"
+                        Click="UnselecctButton_Click"
+                        ToolTip="{DynamicResource FP_UnselecctButtonTT}"
+                        Style="{StaticResource Windows10BaseButton}" 
+                       >
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                                <TextBlock FontFamily="Segoue UI"
+                                           FontSize="14"   
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           Foreground="{DynamicResource ColorForeground}"
+                                           Text="{DynamicResource fp_btn_unselect}"
+                                           Margin="5,5,20,5"/>
+
+
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!--ViewMothlyReport-->
+            <ScrollViewer Name="ViewMonthlyReport" 
+                  Visibility="Collapsed">
+                <DataGrid     VerticalScrollBarVisibility="Auto"
+                              x:Name="GridMonthlyReport" 
+                              SelectionChanged="GridMonthlyReport_SelectionChanged"
+                              Margin="15" 
+                              AutoGeneratingColumn="GridMonthlyReport_AutoGeneratingColumn"
+                              AutoGeneratedColumns="GridMonthlyReport_AutoGeneratedColumns"
+                              />
+            </ScrollViewer>
+
+            <!--ViewDepartamentReport-->
+            <ScrollViewer Name="ViewDepartamentReport" 
+                  Visibility="Collapsed">
+                <DataGrid VerticalScrollBarVisibility="Auto"
+                              x:Name="GridDepartamentReport" 
+                              AutoGeneratedColumns="GridDepartamentReport_AutoGeneratedColumns"
+                              Margin="15" 
+                              />
+            </ScrollViewer>
+
+            <!--GridAllTime-->
+            <Frame Name="GridAllTime" 
+                  Visibility="Collapsed">
+
+            </Frame>
+
+            <!--Generation Excel-->
+            <Frame Name="SVGenerationExcel" 
+                  Visibility="Collapsed">
+                
+                
+            </Frame>
+
+            <!--Sending Excel-->
+            <Frame Name="AllExcelFiles" 
+                  Visibility="Collapsed">
+                
+            </Frame>
+
+            <!--Holideys-->
+            <ScrollViewer Name="CalendarAndWeekend" 
+                          Visibility="Collapsed">
+                <Frame Name="CalendarFrame">
+                    
+                </Frame>    
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

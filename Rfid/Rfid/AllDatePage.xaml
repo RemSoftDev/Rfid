@@ -1,0 +1,54 @@
+﻿<Page x:Class="Rfid.AllDatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rfid"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="AllDatePage">
+
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="39*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="197*"/>
+            <ColumnDefinition Width="203*"/>
+            <ColumnDefinition Width="201*"/>
+            <ColumnDefinition Width="198*"/>
+        </Grid.ColumnDefinitions>
+        <Calendar x:Name="CalendarFrom" Grid.RowSpan="3"/>
+        <Calendar x:Name="CalendarTo" Grid.Column="3" Grid.RowSpan="3"/>
+        <Button x:Name="buttonGetData" Content="Get Data" Grid.Column="1" HorizontalAlignment="Left" Margin="163,26,0,0" VerticalAlignment="Top" Width="80" Height="18" Grid.Row="1" Click="buttonGetData_Click" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Grid Grid.Column="1" Margin="0,41,2,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="60*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="labelSelectedTimeInside" Content="Time by selected&#xD;&#xA;date = " RenderTransformOrigin="0.4,0.145" Grid.Row="3"/>
+            <Label x:Name="labelWeekInside" Content="Week"/>
+            <Label x:Name="labelYearInside" Content="Yeat" Grid.Row="2"/>
+            <Label x:Name="labelMonthInside" Content="Month" Grid.Row="1"/>
+        </Grid>
+        <Grid Grid.Column="2" Margin="3,41,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="60*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="labelWeekOutside" Content="Week"/>
+            <Label x:Name="labelMonthOutside" Content="Month" Grid.Row="1"/>
+            <Label x:Name="labelYearOutside" Content="Yeat" Grid.Row="2"/>
+            <Label x:Name="labelSelectedTimeOutside" Content="Time by selected&#xA;date = " RenderTransformOrigin="0.4,0.145" Grid.Row="3"/>
+        </Grid>
+        <Label x:Name="label" Content="Inside" Grid.Column="1" HorizontalAlignment="Left" Margin="59,10,0,0" VerticalAlignment="Top" Height="26" Width="80"/>
+        <Label x:Name="label1" Content="Outside" Grid.Column="2" HorizontalAlignment="Left" Margin="59,10,0,0" VerticalAlignment="Top" Height="26" Width="80"/>
+
+    </Grid>
+</Page>

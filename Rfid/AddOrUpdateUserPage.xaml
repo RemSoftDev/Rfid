@@ -1,0 +1,1302 @@
+﻿<Page x:Class="Rfid.AddOrUpdateUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:local="clr-namespace:Rfid"
+      xmlns:AutoComplControls="clr-namespace:Rfid.AutoCompliteTextBox"
+      mc:Ignorable="d" 
+      Title="{DynamicResource mAddUser}" 
+      Loaded="Page_Loaded"
+      Focusable="True"
+      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+      >
+    <Page.Resources>
+
+        <Style x:Key="TSerach" TargetType="TextBox">
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ColorRegular}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="Width" Value="460" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="InputTextBlock">
+            <Setter Property="Margin" Value="10,5,10,5"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ColorRegular}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="Width" Value="460" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="OutPutInfo">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="4,2" />
+            <Setter Property="Background" Value="{DynamicResource ColorRegular}" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+
+        <Style TargetType="Controls:DateTimePicker">
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ColorRegular}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="Width" Value="460" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+
+        <Style TargetType="Controls:TimePicker">
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ColorRegular}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="Width" Value="460" />
+            <Setter Property="FontSize" Value="18" />
+
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Background" Value="{DynamicResource ColorBackground}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorForeground}" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="Windows10BaseButton">
+            <Setter Property="Width" Value="460"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Name="thisButton" Background="{DynamicResource ColorRegular}">
+                            <ContentPresenter />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+
+                                <Setter TargetName="thisButton"
+                                        Property="Background" 
+                                        Value="{DynamicResource ColorHover}"/>
+                            </Trigger>
+
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter TargetName="thisButton"
+                                        Property="Background" 
+                                        Value="{DynamicResource ColorPressed}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="PIB">
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="MaxWidth" Value="120" />
+        </Style>
+
+    </Page.Resources>
+
+    <Grid HorizontalAlignment="Stretch" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--ListOptions-->
+        <ListBox Name="OptionsList" Grid.Column="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Background="{DynamicResource AccentColorBrush}"
+                 
+                 Width="165"
+                >
+            <ListBoxItem Name="UploadImageSelection"
+                         ToolTip="{DynamicResource S_PhotoTT}"
+                         MouseLeftButtonUp="UploadImageSelection_MouseLeftButtonUp">
+                <TextBlock Margin="5">
+                    <Run FontFamily="Segoe MDL2 Assets"
+                         FontSize="34"
+                         BaselineAlignment="Center"
+                         Text="&#xE187;"/>
+                    <Run FontFamily="Segoue UI"
+                         FontSize="14"
+                         BaselineAlignment="Center"
+                         Text="{DynamicResource addu_lbi_UpdateImage}"
+                         />
+                </TextBlock>
+            </ListBoxItem>
+
+            <ListBoxItem ToolTip="{DynamicResource S_PersonalInfoTT}"
+                        Name="UserInformationSelection"
+                         MouseLeftButtonUp="UserInformationSelection_MouseLeftButtonUp">
+                <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left">
+                    <TextBlock Margin="5"
+                               FontFamily="Segoe MDL2 Assets"
+                               FontSize="34"
+                               TextAlignment="Left"
+                               Text="&#xE136;"
+                               />
+                    <TextBlock FontFamily="Segoue UI"
+                               Margin="3,0,0,0"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap"
+                               Text="{DynamicResource addu_lbi_UserInformation}" Width="103"/>
+                    <!-->  User <LineBreak /> Information
+                    </TextBlock>-->
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Name="ContactManSelection"
+                         ToolTip="{DynamicResource S_ContactManTT}"
+                         MouseLeftButtonUp="ContactManSelection_MouseLeftButtonUp">
+                <TextBlock  Margin="5">
+                    <Run FontFamily="Segoe MDL2 Assets"
+                         FontSize="34"
+                         BaselineAlignment="Center"
+                         Text="&#xE716;"/>
+                    <Run FontFamily="Segoue UI"
+                         FontSize="14"
+                         BaselineAlignment="Center"
+                         xml:space="preserve"
+                         Text="{DynamicResource addu_lbi_ContactPeople}"/>
+                </TextBlock>
+            </ListBoxItem>
+
+
+
+            <ListBoxItem Name="TimeWork"
+                         ToolTip="{DynamicResource S_WorkingDayTT}"
+                         MouseLeftButtonUp="TimeWork_MouseLeftButtonUp">
+                <TextBlock Margin="5">
+                    <Run FontFamily="Segoe MDL2 Assets"
+                         FontSize="34"
+                         BaselineAlignment="Center"
+                         Text="&#xECC5;"/>
+                    <Run FontFamily="Segoue UI"
+                         FontSize="14"
+                         BaselineAlignment="Center"
+                         Text="{DynamicResource addu_lbi_WorkTime}"></Run>
+                </TextBlock>
+            </ListBoxItem>
+
+            <ListBoxItem Name="DepartmentInfoSelection" 
+                         ToolTip="{DynamicResource S_DepInfoTT}"
+                         MouseLeftButtonUp="DepartmentInfoSelection_MouseLeftButtonUp">
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Margin="5"
+                               FontFamily="Segoe MDL2 Assets"
+                               FontSize="34"
+                               TextAlignment="Left"
+                               Text="&#xE825;"
+                               />
+                    <TextBlock FontFamily="Segoue UI"
+                               FontSize="14"
+                               Margin="3,0,0,0"
+                               Width="110"
+                               VerticalAlignment="Center"
+                               TextWrapping="WrapWithOverflow"
+                               
+                               Text="{DynamicResource addu_lbi_DepInfo}" >
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Name="RfiNumbertSelection" 
+                         ToolTip="{DynamicResource S_RfidNumberionTT}"
+                         MouseLeftButtonUp="RfiNumbertSelection_MouseLeftButtonUp">
+                <TextBlock  Margin="5">
+                    <Run FontFamily="Segoe MDL2 Assets"
+                         FontSize="34"
+                         BaselineAlignment="Center"
+                         Text="&#xE928;"/>
+                    <Run FontFamily="Segoue UI"
+                         FontSize="14"
+                         BaselineAlignment="Center"
+                         Text="{DynamicResource addu_RfidNumber}" />
+                </TextBlock>
+            </ListBoxItem>
+
+        </ListBox>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!--UploadImageSelection-->
+            <ScrollViewer Grid.Row="0"
+                  Name="UploadImageGrid" 
+                  Visibility="Visible">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+
+
+                    <Image Grid.Row="1"
+                       Name="imgPhoto"
+                           Stretch="Uniform"
+                           Source="/Image/ProfileIcon.png"
+                           Margin="20"
+                           MaxHeight="350"
+                           Width="320"
+
+                       >
+
+                    </Image>
+
+                    <Button Grid.Row="2" 
+                        Name="upload"
+                            ToolTip="{DynamicResource S_UploadTT}"
+                        Click="Button_UploadImage"
+                        Margin="10"
+                        MinHeight="60"
+                        MinWidth="540"
+                        MaxHeight="75"
+                        MaxWidth="750"
+                        Style="{DynamicResource Windows10BaseButton}"
+                       >
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <TextBlock Foreground="{DynamicResource ColorForeground}"
+                                           FontFamily="Segoe MDL2 Assets"
+                                           FontSize="34"
+                                           Text="&#xEC51;"
+                                           Margin="10,0,20,0"
+                                           VerticalAlignment="Center"
+                             />
+                                <TextBlock FontFamily="Segoue UI"
+                                       FontSize="14"   
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource ColorForeground}"
+                                       Text="{DynamicResource addu_btn_addImage}"
+                                 />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+
+                </Grid>
+            </ScrollViewer>
+
+            <!--UserInformationSelection-->
+            <ScrollViewer Grid.Row="0"
+                          VerticalScrollBarVisibility="Visible" 
+                          Visibility="Collapsed"
+                          Name="UserInformationGrid" >
+                <Grid Name="UserInfoGrid"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+
+
+
+                    <StackPanel Grid.Row="1" 
+                            Grid.Column="0"
+                            HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_FirstName}" />
+                        <TextBox 
+                            Name="TB_UserFN"
+                            Grid.Column="0"  />
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_SecondName}"
+                            Grid.Column="0"
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_UserSN"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_ThirdName}"
+                            Grid.Column="0"
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_UserTN"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_Addres}"
+                            Grid.Column="0"
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_UsesrAddr"
+                            
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="5"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_Birthday}"
+                            Grid.Column="0"
+                            />
+                        <Controls:DateTimePicker 
+                            Name="DP_UserBithday"
+                            
+
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="6"
+                                Grid.Column="0"
+                               Margin="0,10,0,0"
+                                Width="460"
+                                Height="36"
+                                
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource addu_Admin}"
+                            Margin="0"
+                            
+                            />
+                        <CheckBox Name="CB_IsAdmin" IsChecked="False" Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="7"
+                                Grid.Column="0"
+                               Margin="0,10,0,0"
+                                Width="460"
+                                Height="36"
+                                
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource addu_Director}"
+                            Margin="0"
+                            
+                            />
+                        <CheckBox Name="CB_IsDirecor" IsChecked="False" Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="8"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Margin="0,40,0,0">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_Phone}"
+                            />
+                        <TextBox 
+                            Name="TB_UserPhone" TextChanged="TB_UserPhone_TextChanged" 
+                            />
+
+                        <Button
+                                Style="{DynamicResource Windows10BaseButton}"
+                                Name="Button_AddUserPhone"
+	                        ToolTip="{DynamicResource S_PersonalInfoAddNumberTT}"
+                                Click="Button_AddUserPhone_Click"
+                            IsEnabled="False"
+                       >
+	                        <Button.Content>
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock Foreground="{DynamicResource ColorForeground}"
+                                               FontFamily="Segoe MDL2 Assets"
+                                               FontSize="34"
+                                               Text="&#xE780;"
+                                               Margin="10,0,20,0"
+                                                VerticalAlignment="Center"
+                             />
+                                    <TextBlock FontFamily="Segoue UI"
+                                       FontSize="14"   
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource ColorForeground}"
+                                       Text="{DynamicResource addu_btn_addPhoneNumber}"
+                                 />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <Separator Height="5"/>
+                        <Grid Name="userFocusedGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Row="0" 
+                                     Grid.Column="0"
+                                     Name="PhoneNumber1"
+                                     Width="Auto"
+                                     Margin="10,10,30,10"
+                                    
+                                     Text="" HorizontalAlignment="Stretch"
+                                />
+                            <!---->
+                            <TextBox Grid.Row="1" Grid.Column="0"
+                                     Name="PhoneNumber2"
+                                     Width="400"
+                                     Margin="10"
+                                     
+                                     Text=""                                    
+                                />
+                            <TextBox Grid.Row="2" Grid.Column="0"
+                                     Name="PhoneNumber3"
+                                     Width="400"
+                                     Margin="10"
+                                     
+                                     Text=""
+                                /><!---->
+                            <Button  Name="UserResetButton1"
+                                     Grid.Row="0"
+                                     Grid.Column="2"
+                                     Height="40"
+                                     Width="40"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Content="&#xE107;"
+                                     Foreground="{DynamicResource ColorForeground}"
+                                     Background="Transparent"
+                                     Click="UserResetButton1_Click"/>
+
+                            <Button Name="UserResetButton2"
+                                     Grid.Row="1"
+                                     Grid.Column="2"
+                                     Height="40"
+                                     Width="40"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Content="&#xE107;"
+                                     Foreground="{DynamicResource ColorForeground}"
+                                     Background="Transparent" 
+                                     Click="UserResetButton2_Click"/>
+
+                            <Button Name="UserResetButton3"
+                                     Grid.Row="2"
+                                     Grid.Column="2"
+                                     Height="40"
+                                     Width="40"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Content="&#xE107;"
+                                     Foreground="{DynamicResource ColorForeground}"
+                                     Background="Transparent" 
+                                     Click="UserResetButton3_Click"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Grid>
+            </ScrollViewer>
+
+            <!--ContactManSelection-->
+            <ScrollViewer Grid.Row="0" 
+                          VerticalScrollBarVisibility="Visible"
+                          Name="ContactManGrid"  
+                          Visibility="Collapsed"
+                
+                  >
+                <Grid Name="ContactManInfoGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+
+
+
+                    <StackPanel Grid.Row="1" 
+                            Grid.Column="0"
+                            HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_FirstName}"
+                            Name="L_FN"
+                        
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_FN"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_SecondName}"
+                            Grid.Column="0"
+                            Name="L_SN"
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_SN"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_ThirdName}"
+                            Grid.Column="0"
+                            Name="L_TN"
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_TN"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Margin="0,40,0,0">
+
+
+
+
+
+
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_Phone}"
+                            />
+                        <TextBox 
+                            Name="TB_ContacnManPhone" TextChanged="TB_ContacnManPhone_TextChanged" 
+                            />
+                        <Button Style="{StaticResource Windows10BaseButton}"
+                                Name="Button_AddContacnManPhone"
+                                Click="Button_AddContactManPhone_Click"
+                                ToolTip="{DynamicResource S_CPAddNumberTT}"
+                                IsEnabled="False"
+                                
+                       >
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock Foreground="{DynamicResource ColorForeground}"
+                                               FontFamily="Segoe MDL2 Assets"
+                                               FontSize="34"
+                                               Text="&#xE780;"
+                                               Margin="10,0,20,0"
+                                               VerticalAlignment="Center"
+                             />
+                                    <TextBlock FontFamily="Segoue UI"
+                                       FontSize="14"   
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource ColorForeground}"
+                                       Text="{DynamicResource addu_btn_addPhoneNumber}"
+                                 />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <Grid Name="focusetGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Row="0" 
+                                     Grid.Column="0"
+                                     Width="400"
+                                     Text=""
+                                     Margin="10"
+                                     Name="ContactPhonNumber1"                                    
+                                    
+                                />
+                            <TextBox Grid.Row="1" Grid.Column="0"
+                                Width="400"
+                                Text=""
+                                Margin="10"
+                                Name="ContactPhonNumber2"
+                                />
+                            <TextBox Grid.Row="2" Grid.Column="0"
+                                Width="400"
+                                Text=""
+                                Margin="10"
+                                Name="ContactPhonNumber3"
+                           ></TextBox>
+                            <Button  Name="ResetButton1"
+                                     Grid.Row="0"
+                                     Grid.Column="2"
+                                     Height="40"
+                                     Width="40"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Content="&#xE107;"
+                                     Foreground="{DynamicResource ColorForeground}"
+                                     Background="Transparent"
+                                     Click="ResetButton1_Click"/>
+
+                            <Button Name="ResetButton2"
+                                     Grid.Row="1"
+                                     Grid.Column="2"
+                                     Height="40"
+                                     Width="40"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Content="&#xE107;"
+                                     Foreground="{DynamicResource ColorForeground}"
+                                     Background="Transparent" 
+                                     Click="ResetButton2_Click"/>
+
+                            <Button Name="ResetButton3"
+                                     Grid.Row="2"
+                                     Grid.Column="2"
+                                     Height="40"
+                                     Width="40"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Content="&#xE107;"
+                                     Foreground="{DynamicResource ColorForeground}"
+                                     Background="Transparent" 
+                                     Click="ResetButton3_Click"/>
+                        </Grid>
+
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="5">
+                        <Separator Height="5"/>
+                        <Button ToolTip="{DynamicResource S_AddCPTT}"
+                                MinWidth="460"
+                                MaxWidth="620"
+                                Width="auto"
+                                Style="{StaticResource Windows10BaseButton}"
+                                x:Name="Button_AddContacnMan"
+                                Click="Button_AddContactMan_Click"
+                       >
+                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+                                <TextBlock Foreground="{DynamicResource ColorForeground}"
+                                               FontFamily="Segoe MDL2 Assets"
+                                               FontSize="34"
+                                               Text="&#xE1E2;"
+                                               Margin="10,0,20,0"
+                                               VerticalAlignment="Center"
+                             />
+                                <TextBlock FontFamily="Segoue UI"
+                                       FontSize="14"   
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource ColorForeground}"
+                                       Text="{DynamicResource addu_btn_moreContactPerson}"
+                                 />
+                            </StackPanel>
+                        </Button>
+
+
+
+                        <Separator Height="5"/>
+                        <!--Contact man1-->
+
+                        <Grid Name="CMFirstShow" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="{DynamicResource u_l_FirstName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}" 
+                                         Name="CMFirstName1"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="2">
+                                <TextBlock Text="{DynamicResource u_l_SecondName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}"
+                                         Name="CMSecondName1"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="4" >
+                                <TextBlock Text="{DynamicResource u_l_ThirdName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}" 
+                                         Name="CMThirdName1"/>
+                            </StackPanel>
+
+                            <!--Phone numbers-->
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="6" HorizontalAlignment="Right" Margin="0,20,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="{DynamicResource u_l_Phone}" Margin="0,0,27,0"/>
+                                    <TextBox Style="{StaticResource OutPutInfo}" 
+                                             Text=""  Width="270" Name="CMPhone11"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="Phone number 2 : " Visibility="Hidden" />
+                                    <TextBox Style="{StaticResource OutPutInfo}" Text=""  Width="270"  Name="CMPhone12"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="Phone number 3 : " Visibility="Hidden"/>
+                                    <TextBox Style="{StaticResource OutPutInfo}" Text=""  Width="270"  Name="CMPhone13"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Separator Height="5"/>
+                        <!--Contact man2-->
+
+                        <Grid Name="CMSecondShow" Visibility="Collapsed">
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="{DynamicResource u_l_FirstName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}" Name="CMFirstName2"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="2">
+                                <TextBlock Text="{DynamicResource u_l_SecondName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}" Name="CMSecondName2"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="4" >
+                                <TextBlock Text="{DynamicResource u_l_ThirdName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}" Name="CMThirdName2"/>
+                            </StackPanel>
+
+                            <!--Phone numbers-->
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="6" HorizontalAlignment="Right" Margin="0,20,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="{DynamicResource u_l_Phone}" Margin="0,0,27,0"/>
+                                    <TextBox Style="{StaticResource OutPutInfo}" Text=""  Width="270" Name="CMPhone21"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="Phone number 2 : " Visibility="Hidden"/>
+                                    <TextBox Style="{StaticResource OutPutInfo}" Text=""  Width="270"  Name="CMPhone22"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="Phone number 3 : "  Visibility="Hidden"/>
+                                    <TextBox Style="{StaticResource OutPutInfo}" Text=""  Width="270"  Name="CMPhone23"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                        <!--Contact man3-->
+                        <Separator Height="5"/>
+                        <Grid Name="CMThirdShow" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="{DynamicResource u_l_FirstName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}" Name="CMFirstName3"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="2">
+                                <TextBlock Text="{DynamicResource u_l_SecondName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}" Name="CMSecondName3"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="4" >
+                                <TextBlock Text="{DynamicResource u_l_SecondName}"  Style="{StaticResource InputTextBlock}"/>
+                                <TextBox Style="{StaticResource OutPutInfo}" Name="CMThirdName3"/>
+                            </StackPanel>
+
+                            <!--Phone numbers-->
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="6" HorizontalAlignment="Right" Margin="0,20,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="{DynamicResource u_l_Phone}" Margin="0,0,27,0"/>
+                                    <TextBox Style="{StaticResource OutPutInfo}" Text=""  Width="270" Name="CMPhone31"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="Phone number 2 : "  Visibility="Hidden"/>
+                                    <TextBox Style="{StaticResource OutPutInfo}" Text=""  Width="270"  Name="CMPhone32"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource InputTextBlock}" Text="Phone number 3 : " Visibility="Hidden" />
+                                    <TextBox Style="{StaticResource OutPutInfo}" Text=""  Width="270"  Name="CMPhone33"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Grid>
+            </ScrollViewer>
+
+            <!--DepatmantInformationSelection-->
+            <ScrollViewer Grid.Row="0" 
+                          VerticalScrollBarVisibility="Visible" 
+                          Visibility="Collapsed"
+                          Name="DepatmantInformationGrid" >
+                <Grid Name="DepartmentInfoGrid" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+
+                    <StackPanel Grid.Row="0" 
+                            Grid.Column="0"
+                            HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource addu_Serch}"
+                            
+                            />
+                        <AutoComplControls:AutoCompleteTextBox
+                            x:Name="TB_Search"
+                            ItemSelected="TB_Search_ItemSelected"
+                            Width="480"
+                            
+                            Height="26"
+                            Grid.Column="0" 
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" 
+                            Grid.Column="0"
+                            HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_DepartmentName}"
+                        
+                            />
+                        <TextBox 
+                            
+                            Name="TB_DepName"
+                            Grid.Column="0"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_DepartmentCode}"
+                            Grid.Column="0"
+                            />
+                        <TextBox 
+                            Name="TB_DepCode"
+                            Grid.Column="0"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource d_l_FirstName}"
+                            Grid.Column="0"
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_DepFN"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource d_l_SecondName}"
+                            Grid.Column="0"
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_DepSN"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="5"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource d_l_ThirdName}"
+                            Grid.Column="0"
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="TB_DepTN"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="6"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Margin="0,40,0,0">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource u_l_Phone}"
+                            />
+                        <TextBox 
+                            Name="TB_DirectorPhone" TextChanged="TB_DirectorPhone_TextChanged" 
+                            />
+
+                        <Button Grid.Row="1" 
+                                ToolTip="{DynamicResource S_DirectorAddPhoneNumberTT}"
+                                Style="{StaticResource Windows10BaseButton}"
+                                Name="Button_AddDirectorPhone"
+                                Click="Button_AddDirectPhone_Click"
+                                IsEnabled="False"
+                       >
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock Foreground="{DynamicResource ColorForeground}"
+                                               FontFamily="Segoe MDL2 Assets"
+                                               FontSize="34"
+                                               Text="&#xE780;"
+                                               Margin="10,0,20,0"
+                                               VerticalAlignment="Center"
+                             />
+                                    <TextBlock FontFamily="Segoue UI"
+                                               FontSize="14"   
+                                               VerticalAlignment="Center"
+                                               Foreground="{DynamicResource ColorForeground}"
+                                               Text="{DynamicResource addu_btn_addPhoneNumber}"
+                                 />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <Separator Height="5"/>
+                        <Grid Name="departamentFocusetGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Row="0" 
+                                     Grid.Column="0"
+                                     Width="400"
+                                     Text=""
+                                     Margin="10"
+                                     Name="DepartmentPhoneNumber1" 
+                                     VerticalAlignment="Stretch" 
+                                     
+                                />
+                            <TextBox Grid.Row="1" Grid.Column="0"
+                                Width="400"
+                                Text=""
+                                Margin="10"
+                                Name="DepartmentPhoneNumber2"
+                                
+                                />
+                            <TextBox Grid.Row="2" Grid.Column="0"
+                                Width="400"
+                                Text=""
+                                Margin="10"
+                                Name="DepartmentPhoneNumber3"
+                                
+                                />
+                            <Button  Name="DepartamentRemoveButton1"
+                                     Grid.Row="0"
+                                     Grid.Column="2"
+                                     Height="40"
+                                     Width="40"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Content="&#xE107;"
+                                     Background="Transparent" 
+                                     Foreground="{DynamicResource ColorForeground}"
+                                     Click="DepartamentRemoveButton1_Click"
+                                        />
+
+                            <Button Name="DepartamentRemoveButton2" 
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Height="40"
+                                    Width="40"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    Content="&#xE107;"
+                                    Background="Transparent" 
+                                    Foreground="{DynamicResource ColorForeground}"
+                                    Click="DepartamentRemoveButton2_Click"/>
+
+                            <Button Name="DepartamentRemoveButton3" 
+                                    Grid.Row="2"
+                                    Grid.Column="2"
+                                    Height="40"
+                                    Width="40"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    Content="&#xE107;"
+                                    Background="Transparent" 
+                                    Foreground="{DynamicResource ColorForeground}"
+                                    Click="DepartamentRemoveButton3_Click"/>
+                        </Grid>
+
+                    </StackPanel>
+
+                </Grid>
+            </ScrollViewer>
+
+            <!--RfidNumberSelection-->
+            <ScrollViewer  Grid.Row="0"
+                           Name="RfidNumberGrid"
+                           Visibility="Collapsed">
+                <Grid Name="RfidGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+
+                    <StackPanel Grid.Row="1" 
+                            Grid.Column="0"
+                            HorizontalAlignment="Center">
+                        <TextBlock 
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource enterRfid_label}"
+                        
+                            />
+                        <TextBox 
+                            Grid.Column="0"
+                            Name="ShowRfid"
+                            />
+                    </StackPanel>
+
+
+                    <Button Grid.Row="2" 
+                            Visibility="Collapsed"
+                            Width="460"
+                            Height="60"
+                            Name="AddRfid" 
+                            ToolTip="{DynamicResource S_AddRfid}"
+                            Click="Click_AddRfid" 
+                            Style="{DynamicResource Windows10BaseButton}">
+
+                        <Button.Content>
+                            <StackPanel HorizontalAlignment="Center"
+                                             Orientation="Horizontal"
+                                             VerticalAlignment="Center"
+                                             Background="Transparent">
+
+                                <TextBlock Foreground="{DynamicResource ColorForeground}"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       FontSize="34"
+                                       Text="&#xE928;"
+                                       Margin="5,5,20,5"/>
+                                <TextBlock FontFamily="Segoue UI"
+                                           FontSize="14"   
+                                           VerticalAlignment="Center"
+                                           Foreground="{DynamicResource ColorForeground}"
+                                           Text="{DynamicResource addu_btn_addRfid}"/>
+
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                </Grid>
+            </ScrollViewer>
+
+            <!--WorkTime-->
+            <ScrollViewer Grid.Row="0"
+                   Visibility="Collapsed"
+                   Name="WorkTimeGrid">
+                <Grid Name="WorkTimeInfoGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <StackPanel Grid.Row="1" 
+                            Grid.Column="0"
+                            HorizontalAlignment="Center">
+                        <TextBlock 
+                            x:Name="LB_Start"
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource addu_start}"
+                        
+                            />
+                        <Controls:TimePicker Culture="uk-UA"
+                            Grid.Column="0"
+                            Name="TB_Start" SelectedTimeChanged="TB_End_SelectedTimeChanged"
+                            
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            x:Name="LB_And"
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource addu_end}"
+                           
+                            />
+                        <Controls:TimePicker  Culture="uk-UA"
+                         
+                            Name="TB_End" SelectedTimeChanged="TB_End_SelectedTimeChanged"
+                                              
+                            
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3"
+                                 Grid.Column="0"
+                                HorizontalAlignment="Center">
+                        <TextBlock 
+                            x:Name="LB_Validt"
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource addu_valid}"
+                            
+                            />
+                        <Controls:TimePicker Culture="uk-UA"
+                            Name="TB_Valid"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" HorizontalAlignment="Center">
+                        <TextBlock 
+                            x:Name="LB_Dinner"
+                            Style="{StaticResource InputTextBlock}"
+                            Text="{DynamicResource addu_dinnerTime}"
+                            
+                            />
+                        <Controls:TimePicker Culture="uk-UA"
+                                             
+                            Name="TB_Dinner"
+                            />
+
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+
+            <StackPanel Grid.Row="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Grid.Row="1" 
+
+                        Name="SaveChanges"
+                        Click="Button_Save_Click"
+                        Width="auto"
+                        ToolTip="{DynamicResource S_SaveChangesTT}"
+                        Style="{StaticResource Windows10BaseButton}"
+                       >
+
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center"
+                                       Foreground="{DynamicResource ColorForeground}"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       FontSize="34"
+                                       Text="&#xE74E;"
+                                       Margin="10,0,10,0"/>
+                            <TextBlock FontFamily="Segoue UI"
+                                           FontSize="14"   
+                                           VerticalAlignment="Center"
+                                           Foreground="{DynamicResource ColorForeground}"
+                                           Text="{DynamicResource addu_btn_saveChanges}"
+                                           Margin="5,5,20,5"/>
+
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Page>
